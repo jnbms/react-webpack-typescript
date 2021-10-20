@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     mode:"development",
-    entry: path.join(__dirname,"frontend","index.tsx"),
+    entry: path.join(__dirname,"frontend","client","index.tsx"),
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname,"dist"),
@@ -15,7 +15,7 @@ module.exports = {
         rules: [
             {
                 test: /\.(ts|tsx)$/,
-                use: "ts-loader"
+                use: "ts-loader",
             },
             {
                 test: /\.css$/,
@@ -25,7 +25,11 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./frontend/index.html"
-        })
-    ]
+            template: path.join("frontend","client","index.html")
+        }),
+    ],
+    devServer: {
+        historyApiFallback: true, // URL에 직접 path 입력할 경우, react-router-dom과 관련
+        hot: true,
+    }
 }
