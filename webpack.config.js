@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     mode:"development",
-    entry: path.join(__dirname,"frontend","client","App","index.tsx"),
+    entry: path.join(__dirname,"frontend","client","index","index.tsx"),
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname,"dist"),
@@ -26,7 +26,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join("frontend","client","App","index.html")
+            template: path.join("frontend","client","index","index.html")
         }),
     ],
     devServer: {

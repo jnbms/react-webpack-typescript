@@ -2,7 +2,8 @@
     "compilerOptions": {
         "target": "ES5",
         "module": "CommonJS",
-        "jsx": "react",
+        // "jsx" 대신 "react-jsx"를 사용할 경우 tsx 파일마다 import React from "react"를 작성하지 않아도 된다.
+        "jsx": "react-jsx",
         "moduleResolution": "Node",
         "esModuleInterop": true,
     }

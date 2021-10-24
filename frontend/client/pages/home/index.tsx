@@ -1,5 +1,14 @@
-import React from "react";
+import {Fragment} from "react";
+import {useRecoilValue} from "recoil";
+import {textState} from "../../context";
 
 export default function Index(props){
-    return <div>Home directory Index Pages</div>
+
+    const text = useRecoilValue(textState);
+
+    return (
+        <Fragment>
+            <div>Recoil Data is {text}</div>
+        </Fragment>
+    );
 }

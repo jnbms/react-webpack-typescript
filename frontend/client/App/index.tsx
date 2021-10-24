@@ -1,12 +1,21 @@
-import React,{StrictMode} from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
+import {Fragment} from "react";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import DynamicPage from "./Router";
 
-const rootElement = document.getElementById("root");
-
-ReactDOM.render(
-    <StrictMode>
-        <App/>
-    </StrictMode>,
-    rootElement
-)
+export default function App(){
+    return (
+        <Fragment>
+                <Router>
+                    <Route
+                        path="/"
+                        render={({history,location}) =>
+                            <DynamicPage
+                                pathname={location.pathname}
+                                onNotFound={() => history.push("/404")}
+                            />
+                        }
+                    />
+                </Router>
+        </Fragment>
+    );
+}
