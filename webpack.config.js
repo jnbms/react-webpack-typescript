@@ -3,10 +3,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     mode:"development",
-    entry: path.join(__dirname,"frontend","client","index.tsx"),
+    entry: path.join(__dirname,"frontend","client","App","index.tsx"),
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname,"dist"),
+        publicPath: "/" // Dynamic Folder Route 구현 시 URL 인식 문제 해결
     },
     resolve: {
         extensions: [".js",".ts",".tsx"]
@@ -25,7 +26,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join("frontend","client","index.html")
+            template: path.join("frontend","client","App","index.html")
         }),
     ],
     devServer: {
