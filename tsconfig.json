@@ -6,5 +6,5 @@
         "jsx": "react-jsx",
         "moduleResolution": "Node",
         "esModuleInterop": true,
-    }
+    },
 }

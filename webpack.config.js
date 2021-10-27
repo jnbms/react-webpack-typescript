@@ -7,7 +7,6 @@ module.exports = {
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname,"dist"),
-        publicPath: "/" // Dynamic Folder Route 구현 시 URL 인식 문제 해결
     },
     resolve: {
         extensions: [".js",".ts",".tsx"]
@@ -26,7 +25,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join("frontend","client","index","index.html")
+            template: path.join("frontend","client","index","index.html"),
+            publicPath: "/" // Dynamic Folder Route 구현 시 URL 인식 문제 해결, Build의 경우, bundle 인식 오류 발생
         }),
     ],
     devServer: {
